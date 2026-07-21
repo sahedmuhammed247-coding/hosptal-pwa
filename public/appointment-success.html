@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<header>
+    <h1>Hospital Appointment Booking System</h1>
+</header>
+
+<main>
+
+    <h2>✅ Appointment Confirmed</h2>
+
+    <div class="receipt">
+
+        <p><strong>Booking Number:</strong> <span id="bookingNumber"></span></p>
+
+        <p><strong>Patient Name:</strong> <span id="patientName"></span></p>
+
+        <p><strong>Doctor Name:</strong> <span id="doctor"></span></p>
+
+        <p><strong>Appointment Date:</strong> <span id="appointmentDate"></span></p>
+
+        <p><strong>Appointment Time:</strong> 10:30 AM</p>
+
+        <p><strong>Hospital:</strong> City Care Hospital</p>
+
+        <p><strong>Status:</strong> <span style="color:green;">Confirmed ✅</span></p>
+
+        <p style="color:red;">
+            Please arrive 15 minutes before your appointment.
+        </p>
+
+        <br>
+
+        <button onclick="window.print()">Print Appointment</button>
+
+        <button onclick="window.location.href='dashboard.html'">
+            Back to Dashboard
+        </button>
+
+        <button onclick="window.location.href='index.html'">
+            Home
+        </button>
+
+    </div>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("bookingNumber").textContent =
+        localStorage.getItem("bookingNumber") || "Not Available";
+
+    document.getElementById("patientName").textContent =
+        localStorage.getItem("patientName") || "Not Available";
+
+    document.getElementById("doctor").textContent =
+        localStorage.getItem("doctor") || "Not Available";
+
+    document.getElementById("appointmentDate").textContent =
+        localStorage.getItem("appointmentDate") || "Not Available";
+
+});
+</script>
+
+<script src="js/app.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<header>
+    <h1>Hospital Appointment Booking System</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+</header>
+
+<main>
+
+    <h2>Welcome to Your Dashboard</h2>
+
+    <p>You have successfully logged in.</p>
+
+    <h3>Book Your Appointment</h3>
+
+    <form id="appointmentForm">
+
+        <input
+            type="text"
+            id="patientName"
+            placeholder="Patient Name"
+            required
+        >
+
+        <input
+            type="date"
+            id="appointmentDate"
+            required
+        >
+
+        <select id="doctor" required>
+            <option value="">Select Doctor</option>
+            <option>Dr. AMAN(MBBS,ortho)</option>
+            <option>Dr. Sarah</option>
+            <option>Dr. MIJWAD(MENTALIST)</option>
+             <option>Dr. faadi</option>
+        </select>
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>
