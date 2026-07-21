@@ -26,7 +26,7 @@
 
 </header>
 
-
+<!-- Sidebar -->
 <div id="sideMenu" class="side-menu">
 
     <span class="close-btn" onclick="closeMenu()">&times;</span>
@@ -51,7 +51,7 @@
 
 </div>
 
-
+<!-- Main -->
 <main>
 
     <h2>Welcome</h2>
@@ -74,39 +74,43 @@
 
 </main>
 
-
 <footer>
-
-<p>&copy; 2026 Hospital Appointment Booking System</p>
-
+    <p>&copy; 2026 Hospital Appointment Booking System</p>
 </footer>
 
-
+<!-- Sidebar JavaScript -->
 <script>
-
-function openMenu(){
-    document.getElementById("sideMenu").style.width="280px";
+function openMenu() {
+    document.getElementById("sideMenu").style.width = "280px";
 }
 
-function closeMenu(){
-    document.getElementById("sideMenu").style.width="0";
+function closeMenu() {
+    document.getElementById("sideMenu").style.width = "0";
 }
-
 </script>
 
 <script src="js/app.js"></script>
 
+<!-- Service Worker -->
 <script>
 if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-        navigator.serviceWorker
-            .register("service-worker.js")
-            .then(function () {
-                console.log("Service Worker Registered");
-            })
-            .catch(function (error) {
-                console.log("Service Worker Registration Failed:", error);
+    window.addEventListener("load", async () => {
+        try {
+            const registration = await navigator.serviceWorker.register("/service-worker.js");
+
+            console.log("Service Worker Registered:", registration.scope);
+
+            // Check for updates immediately
+            registration.update();
+
+            // Reload automatically when a new service worker takes control
+            navigator.serviceWorker.addEventListener("controllerchange", () => {
+                window.location.reload();
             });
+
+        } catch (error) {
+            console.error("Service Worker Registration Failed:", error);
+        }
     });
 }
 </script>

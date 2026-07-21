@@ -1,4 +1,4 @@
-const CACHE_NAME = "hospital-pwa-v1";
+const CACHE_NAME = "hospital-pwa-v2";
 
 const urlsToCache = [
     "/",
@@ -7,31 +7,24 @@ const urlsToCache = [
     "/login.html",
     "/dashboard.html",
     "/appointment-success.html",
+    "/admin-login.html",
     "/css/style.css",
     "/js/app.js",
     "/manifest.json"
 ];
 
-// Install Service Worker
+// Install
 self.addEventListener("install", (event) => {
+    self.skipWaiting();
+
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-            console.log("Cache opened");
             return cache.addAll(urlsToCache);
         })
     );
 });
 
-// Fetch Cached Files
-self.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request).then((response) => {
-            return response || fetch(event.request);
-        })
-    );
-});
-
-// Activate Service Worker
+// Activate
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -42,6 +35,23 @@ self.addEventListener("activate", (event) => {
                     }
                 })
             );
-        })
+        }).then(() => self.clients.claim())
+    );
+});
+
+// Fetch (Network First)
+self.addEventListener("fetch", (event) => {
+    event.respondWith(
+        fetch(event.request)
+            .then((response) => {
+                const responseClone = response.clone();
+
+                caches.open(CACHE_NAME).then((cache) => {
+                    cache.put(event.request, responseClone);
+                });
+
+                return response;
+            })
+            .catch(() => caches.match(event.request))
     );
 });
