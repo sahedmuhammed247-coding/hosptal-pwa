@@ -11,104 +11,116 @@
 <body>
 
 <header>
+
     <h1>Hospital Dashboard</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="admin-login.html">Logout</a>
     </nav>
+
 </header>
 
 <main>
 
-<h2>Booked Appointments</h2>
+    <h2>Booked Appointments</h2>
 
-<table border="1" width="100%" cellpadding="10" cellspacing="0">
-    <thead>
-        <tr>
-            <th>Booking ID</th>
-            <th>Patient Name</th>
-            <th>Doctor</th>
-            <th>Appointment Date</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
+    <table border="1" width="100%" cellpadding="10" cellspacing="0">
 
-    <tbody id="appointmentTable">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Patient Name</th>
+                <th>Hospital</th>
+                <th>Doctor</th>
+                <th>Appointment Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
-    </tbody>
-</table>
+        <tbody id="appointmentTable">
+
+        </tbody>
+
+    </table>
+
+    <div class="page-navigation">
+        <button onclick="window.location.href='admin-login.html'">
+            ⬅ Back
+        </button>
+    </div>
 
 </main>
 
 <script>
 
-let appointments =
-JSON.parse(localStorage.getItem("appointments")) || [];
+let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
 const table = document.getElementById("appointmentTable");
 
-if(appointments.length===0){
+if (appointments.length === 0) {
 
-table.innerHTML=`
-<tr>
-<td colspan="6">No Appointments Found</td>
-</tr>
-`;
+    table.innerHTML = `
+        <tr>
+            <td colspan="7">No Appointments Found</td>
+        </tr>
+    `;
 
-}else{
+} else {
 
-displayAppointments();
-
-}
-
-function displayAppointments(){
-
-table.innerHTML="";
-
-appointments.forEach((appointment,index)=>{
-
-table.innerHTML+=`
-
-<tr>
-
-<td>${appointment.bookingNumber}</td>
-
-<td>${appointment.patientName}</td>
-
-<td>${appointment.doctor}</td>
-
-<td>${appointment.appointmentDate}</td>
-
-<td>${appointment.status}</td>
-
-<td>
-
-<button onclick="confirmAppointment(${index})">
-Confirm
-</button>
-
-</td>
-
-</tr>
-
-`;
-
-});
+    displayAppointments();
 
 }
 
-function confirmAppointment(index){
+function displayAppointments() {
 
-appointments[index].status="Confirmed ✅";
+    table.innerHTML = "";
 
-localStorage.setItem(
-"appointments",
-JSON.stringify(appointments)
-);
+    appointments.forEach((appointment, index) => {
 
-displayAppointments();
+        table.innerHTML += `
+
+        <tr>
+
+            <td>${appointment.bookingNumber}</td>
+
+            <td>${appointment.patientName}</td>
+
+            <td>${appointment.hospital || "-"}</td>
+
+            <td>${appointment.doctor}</td>
+
+            <td>${appointment.appointmentDate}</td>
+
+            <td>${appointment.status}</td>
+
+            <td>
+
+                <button onclick="confirmAppointment(${index})">
+                    Confirm
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+function confirmAppointment(index) {
+
+    appointments[index].status = "Confirmed ✅";
+
+    localStorage.setItem(
+        "appointments",
+        JSON.stringify(appointments)
+    );
+
+    displayAppointments();
 
 }
 

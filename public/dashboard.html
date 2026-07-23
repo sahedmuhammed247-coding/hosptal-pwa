@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Book Appointment</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
@@ -11,21 +11,21 @@
 <body>
 
 <header>
+
     <h1>Hospital Appointment Booking System</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="#" id="logoutBtn">Logout</a>
     </nav>
+
 </header>
 
 <main>
 
-    <h2>Welcome to Your Dashboard</h2>
+    <h2>Book Your Appointment</h2>
 
-    <p>You have successfully logged in.</p>
-
-    <h3>Book Your Appointment</h3>
+    <p>Please confirm your appointment details.</p>
 
     <form id="appointmentForm">
 
@@ -37,18 +37,22 @@
         >
 
         <input
+            type="text"
+            id="hospital"
+            readonly
+        >
+
+        <input
+            type="text"
+            id="doctor"
+            readonly
+        >
+
+        <input
             type="date"
             id="appointmentDate"
             required
         >
-
-        <select id="doctor" required>
-            <option value="">Select Doctor</option>
-            <option>Dr. AMAN(MBBS,ortho)</option>
-            <option>Dr. Sarah</option>
-            <option>Dr. MIJWAD(MENTALIST)</option>
-             <option>Dr. faadi</option>
-        </select>
 
         <button type="submit">
             Book Appointment
@@ -56,9 +60,26 @@
 
     </form>
 
+    <div class="page-navigation">
+        <button onclick="history.back()">
+            ⬅ Back
+        </button>
+    </div>
+
 </main>
 
 <script src="js/app.js"></script>
+
+<script>
+document.getElementById("hospital").value =
+    localStorage.getItem("selectedHospital") || "";
+
+document.getElementById("doctor").value =
+    localStorage.getItem("selectedDoctor") || "";
+
+document.getElementById("patientName").value =
+    localStorage.getItem("name") || "";
+</script>
 
 <script>
 if ("serviceWorker" in navigator) {

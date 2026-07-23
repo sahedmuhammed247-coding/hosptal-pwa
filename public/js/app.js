@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 password === localStorage.getItem("password")
             ) {
                 alert("Login Successful!");
-                window.location.href = "dashboard.html";
+                window.location.href = "hospital-list.html";
             } else {
                 alert("Invalid Email or Password!");
             }
@@ -79,20 +79,23 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
 
             const patientName = document.getElementById("patientName").value;
-            const appointmentDate = document.getElementById("appointmentDate").value;
+            const hospital = document.getElementById("hospital").value;
             const doctor = document.getElementById("doctor").value;
+            const appointmentDate = document.getElementById("appointmentDate").value;
 
             const bookingNumber = "HSP" + Math.floor(Math.random() * 1000000);
 
             const appointment = {
                 bookingNumber: bookingNumber,
                 patientName: patientName,
+                hospital: hospital,
                 doctor: doctor,
                 appointmentDate: appointmentDate,
                 status: "Pending"
             };
 
-            let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+            let appointments =
+                JSON.parse(localStorage.getItem("appointments")) || [];
 
             appointments.push(appointment);
 
@@ -101,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Save latest appointment for confirmation page
             localStorage.setItem("bookingNumber", bookingNumber);
             localStorage.setItem("patientName", patientName);
+            localStorage.setItem("hospital", hospital);
             localStorage.setItem("doctor", doctor);
             localStorage.setItem("appointmentDate", appointmentDate);
 

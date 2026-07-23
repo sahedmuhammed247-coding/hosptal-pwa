@@ -767,5 +767,51 @@ img{
 }
 
 /* =========================================
+   RECEIPT CARD
+========================================= */
+
+.receipt{
+    max-width:700px;
+    margin:30px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.receipt p{
+    text-align:left;
+    margin:12px 0;
+    font-size:17px;
+}
+
+.receipt button{
+    margin:10px;
+}
+
+/* =========================================
+   READONLY INPUTS
+========================================= */
+
+input[readonly]{
+    background:#f5f5f5;
+    cursor:not-allowed;
+}
+
+/* =========================================
+   MOBILE TABLE SCROLL
+========================================= */
+
+@media(max-width:768px){
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
+
+/* =========================================
    END OF STYLE.CSS
 ========================================= */

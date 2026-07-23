@@ -11,12 +11,14 @@
 <body>
 
 <header>
+
     <h1>Hospital Appointment Booking System</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="login.html">Patient Login</a>
     </nav>
+
 </header>
 
 <main>
@@ -48,20 +50,31 @@
 </main>
 
 <script>
+
 document.getElementById("adminLoginForm").addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    const username=document.getElementById("adminUsername").value;
-    const password=document.getElementById("adminPassword").value;
+    const username = document.getElementById("adminUsername").value.trim();
+    const password = document.getElementById("adminPassword").value;
 
-    if(username==="admin" && password==="admin123"){
-        window.location.href="admin-dashboard.html";
-    }else{
-        alert("Invalid Admin Login");
+    if (username === "admin" && password === "admin123") {
+
+        alert("Admin Login Successful!");
+
+        window.location.href = "admin-dashboard.html";
+
+    } else {
+
+        alert("Invalid Username or Password!");
+
+        document.getElementById("adminPassword").value = "";
+        document.getElementById("adminPassword").focus();
+
     }
 
 });
+
 </script>
 
 </body>

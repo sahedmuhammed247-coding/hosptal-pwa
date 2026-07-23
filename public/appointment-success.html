@@ -16,7 +16,7 @@
 
 <main>
 
-    <h2>✅ Appointment Confirmed</h2>
+    <h2>✅ Appointment Booked Successfully</h2>
 
     <div class="receipt">
 
@@ -24,15 +24,15 @@
 
         <p><strong>Patient Name:</strong> <span id="patientName"></span></p>
 
+        <p><strong>Hospital:</strong> <span id="hospital"></span></p>
+
         <p><strong>Doctor Name:</strong> <span id="doctor"></span></p>
 
         <p><strong>Appointment Date:</strong> <span id="appointmentDate"></span></p>
 
         <p><strong>Appointment Time:</strong> 10:30 AM</p>
 
-        <p><strong>Hospital:</strong> City Care Hospital</p>
-
-        <p><strong>Status:</strong> <span style="color:green;">Confirmed ✅</span></p>
+        <p><strong>Status:</strong> <span style="color:orange;">Pending</span></p>
 
         <p style="color:red;">
             Please arrive 15 minutes before your appointment.
@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("patientName").textContent =
         localStorage.getItem("patientName") || "Not Available";
 
+    document.getElementById("hospital").textContent =
+        localStorage.getItem("hospital") || "Not Available";
+
     document.getElementById("doctor").textContent =
         localStorage.getItem("doctor") || "Not Available";
 
@@ -85,7 +88,6 @@ if ("serviceWorker" in navigator) {
             .catch(function (error) {
                 console.log("Service Worker Registration Failed:", error);
             });
-    });
 }
 </script>
 

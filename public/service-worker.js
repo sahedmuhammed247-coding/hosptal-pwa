@@ -1,16 +1,42 @@
-const CACHE_NAME = "hospital-pwa-v2";
+const CACHE_NAME = "hospital-pwa-v3";
 
 const urlsToCache = [
     "/",
     "/index.html",
     "/register.html",
     "/login.html",
+    "/hospital-list.html",
+    "/doctor-yenepoya.html",
+    "/doctor-kmc.html",
+    "/doctor-indiana.html",
     "/dashboard.html",
     "/appointment-success.html",
     "/admin-login.html",
+    "/admin-dashboard.html",
+    "/customer-care.html",
+    "/about.html",
+    "/my-appointments.html",
+
     "/css/style.css",
     "/js/app.js",
-    "/manifest.json"
+    "/manifest.json",
+
+    "/images/yenepoya.jpg",
+    "/images/kmc.jpeg",
+    "/images/indiana.jpeg",
+
+    "/images/doctor1.png",
+    "/images/doctor2.png",
+    "/images/doctor3.png",
+    "/images/doctor4.png",
+    "/images/doctor5.png",
+    "/images/doctor6.png",
+    "/images/doctor7.png",
+    "/images/doctor8.png",
+    "/images/doctor9.png",
+    "/images/doctor10.png",
+    "/images/doctor11.png",
+    "/images/doctor12.png"
 ];
 
 // Install
@@ -39,11 +65,17 @@ self.addEventListener("activate", (event) => {
     );
 });
 
-// Fetch (Network First)
+// Fetch
 self.addEventListener("fetch", (event) => {
+
+    if (event.request.method !== "GET") {
+        return;
+    }
+
     event.respondWith(
         fetch(event.request)
             .then((response) => {
+
                 const responseClone = response.clone();
 
                 caches.open(CACHE_NAME).then((cache) => {
@@ -51,7 +83,11 @@ self.addEventListener("fetch", (event) => {
                 });
 
                 return response;
+
             })
-            .catch(() => caches.match(event.request))
+            .catch(() => {
+                return caches.match(event.request);
+            })
     );
+
 });
