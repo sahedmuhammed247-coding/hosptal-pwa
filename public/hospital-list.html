@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="menu-icon" onclick="history.back()">☰</div>
+
+    <h1>Hospital Appointment Booking System</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Patient Login</a>
+    </nav>
+
+</header>
+
+<main>
+
+    <h2>Select Your Hospital</h2>
+
+    <p>
+        Choose a hospital to view the available doctors and book your appointment.
+    </p>
+
+    <div class="hospital-card">
+
+        <img src="images/yenepoya.jpg" alt="Yenepoya Hospital">
+
+        <h3>🏥 Yenepoya Medical College Hospital</h3>
+
+        <p><strong>Location:</strong> Mangalore, Karnataka</p>
+
+        <p><strong>Departments:</strong> Cardiology, Neurology, Orthopaedics, General Medicine</p>
+
+        <button onclick="window.location.href='doctor-details.html'">
+            View Doctors
+        </button>
+
+    </div>
+
+    <div class="hospital-card">
+
+        <img src="images/kmc.jpg" alt="KMC Hospital">
+
+        <h3>🏥 KMC Hospital</h3>
+
+        <p><strong>Location:</strong> Attavar, Mangalore</p>
+
+        <p><strong>Departments:</strong> ENT, Pediatrics, Dermatology, Surgery</p>
+
+        <button onclick="window.location.href='doctor-details.html'">
+            View Doctors
+        </button>
+
+    </div>
+
+    <div class="hospital-card">
+
+        <img src="images/indiana.jpg" alt="Indiana Hospital">
+
+        <h3>🏥 Indiana Hospital</h3>
+
+        <p><strong>Location:</strong> Pumpwell, Mangalore</p>
+
+        <p><strong>Departments:</strong> Dental, Ophthalmology, Emergency Care</p>
+
+        <button onclick="window.location.href='doctor-details.html'">
+            View Doctors
+        </button>
+
+    </div>
+
+    <div class="page-navigation">
+
+        <button onclick="window.location.href='login.html'">
+            ⬅ Back
+        </button>
+
+        <button onclick="window.location.href='doctor-details.html'">
+            Next ➜
+        </button>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Hospital Appointment Booking System</p>
+</footer>
+
+</body>
+</html>
