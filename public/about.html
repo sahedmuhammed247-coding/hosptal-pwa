@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<header>
+
+    <h1>Hospital Appointment Booking System</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="hospital-list.html">Hospitals</a>
+        <a href="login.html">Patient Login</a>
+    </nav>
+
+</header>
+
+<main>
+
+    <h2>ℹ️ About Us</h2>
+
+    <div class="hospital-card">
+
+        <h3>Hospital Appointment Booking System</h3>
+
+        <p>
+            The Hospital Appointment Booking System is a Progressive Web Application (PWA)
+            designed to make booking doctor appointments simple, fast, and convenient.
+        </p>
+
+        <h3>Features</h3>
+
+        <ul style="text-align:left; margin:20px;">
+            <li>✅ Patient Registration</li>
+            <li>✅ Patient Login</li>
+            <li>✅ Hospital Selection</li>
+            <li>✅ Doctor Selection</li>
+            <li>✅ Online Appointment Booking</li>
+            <li>✅ Appointment Confirmation</li>
+            <li>✅ My Appointments</li>
+            <li>✅ Hospital Admin Dashboard</li>
+            <li>✅ Progressive Web App (PWA) Support</li>
+        </ul>
+
+        <h3>Our Mission</h3>
+
+        <p>
+            Our mission is to reduce waiting time in hospitals and provide
+            patients with an easy and secure online appointment booking experience.
+        </p>
+
+    </div>
+
+    <div class="page-navigation">
+
+        <button onclick="window.location.href='index.html'">
+            🏠 Home
+        </button>
+
+        <button onclick="history.back()">
+            ⬅ Back
+        </button>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Hospital Appointment Booking System</p>
+</footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,99 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="manifest.json">
+<title>Book Appointment</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+
 </head>
 <body>
 
 <header>
 
-    <h1>Hospital Appointment Booking System</h1>
+<h1>Hospital Appointment Booking System</h1>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#" id="logoutBtn">Logout</a>
-    </nav>
+<nav>
+<a href="index.html">Home</a>
+<a href="#" id="logoutBtn">Logout</a>
+</nav>
 
 </header>
 
 <main>
 
-    <h2>Book Your Appointment</h2>
+<h2>Book Your Appointment</h2>
 
-    <p>Please confirm your appointment details.</p>
+<p>Please confirm your appointment details.</p>
 
-    <form id="appointmentForm">
+<form id="appointmentForm">
 
-        <input
-            type="text"
-            id="patientName"
-            placeholder="Patient Name"
-            required
-        >
+<label>Patient Name</label>
+<input
+type="text"
+id="patientName"
+required
+>
 
-        <input
-            type="text"
-            id="hospital"
-            readonly
-        >
+<label>Phone Number</label>
+<input
+type="tel"
+id="phone"
+readonly
+>
 
-        <input
-            type="text"
-            id="doctor"
-            readonly
-        >
+<label>Hospital</label>
+<input
+type="text"
+id="hospital"
+readonly
+>
 
-        <input
-            type="date"
-            id="appointmentDate"
-            required
-        >
+<label>Doctor</label>
+<input
+type="text"
+id="doctor"
+readonly
+>
 
-        <button type="submit">
-            Book Appointment
-        </button>
+<label>Appointment Date</label>
+<input
+type="date"
+id="appointmentDate"
+required
+>
 
-    </form>
+<label>Appointment Time</label>
+<input
+type="time"
+id="appointmentTime"
+min="10:00"
+max="15:00"
+required
+>
 
-    <div class="page-navigation">
-        <button onclick="history.back()">
-            ⬅ Back
-        </button>
-    </div>
+<button type="submit">
+Book Appointment
+</button>
+
+</form>
+
+<div class="page-navigation">
+
+<button onclick="history.back()">
+⬅ Back
+</button>
+
+</div>
 
 </main>
 
 <script src="js/app.js"></script>
 
 <script>
+
 document.getElementById("hospital").value =
-    localStorage.getItem("selectedHospital") || "";
+localStorage.getItem("selectedHospital") || "";
 
 document.getElementById("doctor").value =
-    localStorage.getItem("selectedDoctor") || "";
+localStorage.getItem("selectedDoctor") || "";
 
 document.getElementById("patientName").value =
-    localStorage.getItem("name") || "";
+localStorage.getItem("name") || "";
+
+document.getElementById("phone").value =
+localStorage.getItem("phone") || "";
+
 </script>
 
 <script>
+
 if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-        navigator.serviceWorker
-            .register("service-worker.js")
-            .then(function () {
-                console.log("Service Worker Registered");
-            })
-            .catch(function (error) {
-                console.log("Service Worker Registration Failed:", error);
-            });
-    });
+
+window.addEventListener("load", function () {
+
+navigator.serviceWorker
+.register("service-worker.js")
+.then(function () {
+
+console.log("Service Worker Registered");
+
+})
+.catch(function (error) {
+
+console.log("Service Worker Registration Failed:", error);
+
+});
+
+});
+
 }
+
 </script>
 
 </body>

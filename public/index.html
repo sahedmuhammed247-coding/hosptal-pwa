@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 </head>
 
-<body>
+<body class="home-page">
 
 <header>
 
@@ -43,11 +43,11 @@
 
     <a href="admin-login.html">🏥 Hospital Login</a>
 
-    <a href="#">👨‍⚕️ Doctor Details</a>
+    <a href="hospital-list.html">👨‍⚕️ Doctor Details</a>
 
-    <a href="#">📞 Customer Care</a>
+    <a href="customer-care.html">📞 Customer Care</a>
 
-    <a href="#">ℹ️ About Us</a>
+    <a href="about.html">ℹ️ About Us</a>
 
 </div>
 
@@ -100,10 +100,8 @@ if ("serviceWorker" in navigator) {
 
             console.log("Service Worker Registered:", registration.scope);
 
-            // Check for updates immediately
             registration.update();
 
-            // Reload automatically when a new service worker takes control
             navigator.serviceWorker.addEventListener("controllerchange", () => {
                 window.location.reload();
             });
@@ -116,4 +114,4 @@ if ("serviceWorker" in navigator) {
 </script>
 
 </body>
-</html>.0
+</html>

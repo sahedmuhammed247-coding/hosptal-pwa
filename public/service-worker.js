@@ -1,4 +1,4 @@
-const CACHE_NAME = "hospital-pwa-v3";
+const CACHE_NAME = "hospital-pwa-v4";
 
 const urlsToCache = [
     "/",
@@ -6,20 +6,26 @@ const urlsToCache = [
     "/register.html",
     "/login.html",
     "/hospital-list.html",
+    "/doctor-details.html",
     "/doctor-yenepoya.html",
     "/doctor-kmc.html",
     "/doctor-indiana.html",
     "/dashboard.html",
     "/appointment-success.html",
+    "/my-appointments.html",
     "/admin-login.html",
     "/admin-dashboard.html",
     "/customer-care.html",
     "/about.html",
-    "/my-appointments.html",
 
     "/css/style.css",
     "/js/app.js",
     "/manifest.json",
+
+    "/hospital-bg.jpeg",
+
+    "/images/icon-192.png",
+    "/images/icon-512.png",
 
     "/images/yenepoya.jpg",
     "/images/kmc.jpeg",

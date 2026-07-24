@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Hospital</title>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -41,7 +43,7 @@
 
         <p><strong>Departments:</strong> Cardiology, Neurology, Orthopaedics, General Medicine</p>
 
-        <button onclick="window.location.href='doctor-yenepoya.html'">
+        <button onclick="selectHospital('Yenepoya Medical College Hospital','doctor-yenepoya.html')">
             View Doctors
         </button>
 
@@ -58,7 +60,7 @@
 
         <p><strong>Departments:</strong> ENT, Pediatrics, Dermatology, Surgery</p>
 
-        <button onclick="window.location.href='doctor-kmc.html'">
+        <button onclick="selectHospital('KMC Hospital','doctor-kmc.html')">
             View Doctors
         </button>
 
@@ -75,7 +77,7 @@
 
         <p><strong>Departments:</strong> Dental, Ophthalmology, Emergency Care</p>
 
-        <button onclick="window.location.href='doctor-indiana.html'">
+        <button onclick="selectHospital('Indiana Hospital','doctor-indiana.html')">
             View Doctors
         </button>
 
@@ -94,6 +96,28 @@
 <footer>
     <p>&copy; 2026 Hospital Appointment Booking System</p>
 </footer>
+
+<script>
+function selectHospital(hospital, page) {
+    localStorage.setItem("selectedHospital", hospital);
+    window.location.href = page;
+}
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
+</script>
 
 </body>
 </html>

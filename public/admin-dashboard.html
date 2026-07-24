@@ -31,9 +31,11 @@
             <tr>
                 <th>Booking ID</th>
                 <th>Patient Name</th>
+                <th>Phone</th>
                 <th>Hospital</th>
                 <th>Doctor</th>
-                <th>Appointment Date</th>
+                <th>Date</th>
+                <th>Time</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -59,23 +61,21 @@ let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
 const table = document.getElementById("appointmentTable");
 
-if (appointments.length === 0) {
-
-    table.innerHTML = `
-        <tr>
-            <td colspan="7">No Appointments Found</td>
-        </tr>
-    `;
-
-} else {
-
-    displayAppointments();
-
-}
+displayAppointments();
 
 function displayAppointments() {
 
     table.innerHTML = "";
+
+    if (appointments.length === 0) {
+
+        table.innerHTML = `
+        <tr>
+            <td colspan="9">No Appointments Found</td>
+        </tr>
+        `;
+        return;
+    }
 
     appointments.forEach((appointment, index) => {
 
@@ -87,20 +87,24 @@ function displayAppointments() {
 
             <td>${appointment.patientName}</td>
 
+            <td>${appointment.phone || "-"}</td>
+
             <td>${appointment.hospital || "-"}</td>
 
             <td>${appointment.doctor}</td>
 
             <td>${appointment.appointmentDate}</td>
 
+            <td>${appointment.appointmentTime || "-"}</td>
+
             <td>${appointment.status}</td>
 
             <td>
-
-                <button onclick="confirmAppointment(${index})">
-                    Confirm
-                </button>
-
+                ${
+                    appointment.status === "Confirmed ✅"
+                    ? "✔ Confirmed"
+                    : `<button onclick="confirmAppointment(${index})">Confirm</button>`
+                }
             </td>
 
         </tr>
@@ -124,6 +128,23 @@ function confirmAppointment(index) {
 
 }
 
+</script>
+
+<script src="js/app.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
 </script>
 
 </body>

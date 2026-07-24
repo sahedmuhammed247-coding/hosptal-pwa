@@ -47,10 +47,21 @@
 
     </form>
 
+    <div class="page-navigation">
+
+        <button onclick="window.location.href='index.html'">
+            🏠 Home
+        </button>
+
+        <button onclick="history.back()">
+            ⬅ Back
+        </button>
+
+    </div>
+
 </main>
 
 <script>
-
 document.getElementById("adminLoginForm").addEventListener("submit", function(e){
 
     e.preventDefault();
@@ -74,7 +85,21 @@ document.getElementById("adminLoginForm").addEventListener("submit", function(e)
     }
 
 });
+</script>
 
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
 </script>
 
 </body>

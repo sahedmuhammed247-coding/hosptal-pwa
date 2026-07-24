@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<header>
+
+    <h1>Hospital Appointment Booking System</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="hospital-list.html">Hospitals</a>
+        <a href="login.html">Patient Login</a>
+    </nav>
+
+</header>
+
+<main>
+
+<h2>👨‍⚕️ Doctor Details</h2>
+
+<p>Select a hospital to view its doctors and book an appointment.</p>
+
+<div class="hospital-card">
+
+    <h3>🏥 Yenepoya Medical College Hospital</h3>
+
+    <ul>
+        <li>Dr. Mijwad – Cardiologist</li>
+        <li>Dr. Naji – Neurologist</li>
+        <li>Dr. Aman – Orthopaedic Surgeon</li>
+        <li>Dr. Aaqil – Hair Loss Specialist</li>
+    </ul>
+
+    <button onclick="window.location.href='doctor-yenepoya.html'">
+        View Doctors
+    </button>
+
+</div>
+
+<div class="hospital-card">
+
+    <h3>🏥 KMC Hospital</h3>
+
+    <ul>
+        <li>Dr. Ziyan – Cardiologist</li>
+        <li>Dr. Akash – Neurologist</li>
+        <li>Dr. Sinan – Orthopaedic Surgeon</li>
+        <li>Dr. Rifai – General Physician</li>
+    </ul>
+
+    <button onclick="window.location.href='doctor-kmc.html'">
+        View Doctors
+    </button>
+
+</div>
+
+<div class="hospital-card">
+
+    <h3>🏥 Indiana Hospital</h3>
+
+    <ul>
+        <li>Dr. Shan – Cardiologist</li>
+        <li>Dr. Mustafa – Neurologist</li>
+        <li>Dr. Marvaan – Orthopaedic Surgeon</li>
+        <li>Dr. Jilu – General Physician</li>
+    </ul>
+
+    <button onclick="window.location.href='doctor-indiana.html'">
+        View Doctors
+    </button>
+
+</div>
+
+<div class="page-navigation">
+    <button onclick="window.location.href='hospital-list.html'">
+        ⬅ Back
+    </button>
+</div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Hospital Appointment Booking System</p>
+</footer>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("service-worker.js")
+            .then(function () {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (error) {
+                console.log("Service Worker Registration Failed:", error);
+            });
+    });
+}
+</script>
+
+</body>
+</html>

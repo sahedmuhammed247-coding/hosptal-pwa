@@ -682,13 +682,16 @@ img{
 @media(max-width:992px){
 
     nav{
-        nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    flex-direction:row;
-    gap:12px;
-}
+        display:flex;
+        justify-content:center;
+        flex-wrap:nowrap;
+        flex-direction:row;
+        gap:12px;
+    }
+
+    nav a{
+        white-space:nowrap;
+        font-size:15px;
     }
 
     header h1{
@@ -820,3 +823,20 @@ input[readonly]{
 /* =========================================
    END OF STYLE.CSS
 ========================================= */
+
+/* ===== ChatGPT Fixes ===== */
+body.home-page{
+background:linear-gradient(rgba(255,255,255,.75),rgba(255,255,255,.75)),url('hospital-bg.jpeg') center/cover no-repeat fixed;
+}
+.buttons,.hero-buttons{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+@media(max-width:768px){
+nav{flex-wrap:nowrap;overflow-x:auto;}
+nav a{white-space:nowrap;}
+}

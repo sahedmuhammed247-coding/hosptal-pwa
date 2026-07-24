@@ -2,13 +2,13 @@
   "name": "Hospital Appointment Booking System",
   "short_name": "Hospital App",
   "description": "A Progressive Web App for booking hospital appointments.",
-  "start_url": "index.html",
+  "lang": "en",
+  "start_url": "./index.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0077cc",
   "orientation": "portrait",
-
   "icons": [
     {
       "src": "images/icon-192.png",
