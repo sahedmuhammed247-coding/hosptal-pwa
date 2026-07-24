@@ -831,9 +831,14 @@ body.home-page{
     display:flex;
     flex-direction:column;
 
-    background:
-    linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.20)),
-    url("../images/hospital-bg.jpeg") center center/cover no-repeat fixed;
+    background-image:
+        linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.20)),
+        url("../images/hospital-bg.jpeg");
+
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
 }
 
 .buttons,
@@ -862,35 +867,43 @@ footer{
     padding:15px;
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
+
+    header{
+        padding:30px 15px;
+    }
+
+    header h1{
+        font-size:26px;
+        margin-bottom:15px;
+    }
 
     nav{
         flex-wrap:nowrap;
         overflow-x:auto;
+        gap:15px;
     }
 
     nav a{
         white-space:nowrap;
+        font-size:14px;
     }
 
-    header{
-        padding:25px 15px;
-    }
-
-    header h1{
-        font-size:30px;
-    }
-
+    /* Mobile background */
     body.home-page{
-        background-size:100% auto;
-        background-position:top center;
+        background-image:
+            linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.20)),
+            url("../images/hospital-bg-mobile.png");
+
+        background-position:center center;
+        background-size:cover;
         background-repeat:no-repeat;
         background-attachment:scroll;
     }
 
     main{
         justify-content:flex-start;
-        padding-top:40px;
+        padding-top:60px;
     }
 
     .buttons,
