@@ -824,10 +824,10 @@ input[readonly]{
    END OF STYLE.CSS
 ========================================= */
 
-/* ===== ChatGPT Fixes ===== */
+/* ===== saheds Fixes ===== */
 body.home-page{
     background:
-        linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)),
+        linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.75)),
         url("../images/hospital-bg.jpeg") center/cover no-repeat fixed;
 }
 .buttons,.hero-buttons{
@@ -841,4 +841,23 @@ margin-top:20px;
 @media(max-width:768px){
 nav{flex-wrap:nowrap;overflow-x:auto;}
 nav a{white-space:nowrap;}
+}
+html, body{
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+
+main{
+    flex:1;
+}
+
+footer{
+    margin-top:auto;
+    text-align:center;
+    padding:15px;
 }
