@@ -682,8 +682,13 @@ img{
 @media(max-width:992px){
 
     nav{
-        flex-direction:column;
-        gap:10px;
+        nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    flex-direction:row;
+    gap:12px;
+}
     }
 
     header h1{
