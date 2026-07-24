@@ -1,4 +1,4 @@
-const CACHE_NAME = "hospital-pwa-v4";
+const CACHE_NAME = "hospital-pwa-v5";
 
 const urlsToCache = [
     "/",
