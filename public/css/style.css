@@ -826,7 +826,9 @@ input[readonly]{
 
 /* ===== ChatGPT Fixes ===== */
 body.home-page{
-background:linear-gradient(rgba(255,255,255,.75),rgba(255,255,255,.75)),url('hospital-bg.jpeg') center/cover no-repeat fixed;
+    background:
+        linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)),
+        url("../images/hospital-bg.jpeg") center/cover no-repeat fixed;
 }
 .buttons,.hero-buttons{
 display:flex;

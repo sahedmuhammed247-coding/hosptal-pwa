@@ -69,47 +69,58 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ==========================
-    // Appointment Form
-    // ==========================
-    const appointmentForm = document.getElementById("appointmentForm");
+   // ==========================
+// Appointment Form
+// ==========================
+const appointmentForm = document.getElementById("appointmentForm");
 
-    if (appointmentForm) {
-        appointmentForm.addEventListener("submit", function (e) {
-            e.preventDefault();
+if (appointmentForm) {
+    appointmentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            const patientName = document.getElementById("patientName").value;
-            const hospital = document.getElementById("hospital").value;
-            const doctor = document.getElementById("doctor").value;
-            const appointmentDate = document.getElementById("appointmentDate").value;
+        const patientName = document.getElementById("patientName").value;
+        const phone = document.getElementById("phone").value;
+        const hospital = document.getElementById("hospital").value;
+        const doctor = document.getElementById("doctor").value;
+        const appointmentDate = document.getElementById("appointmentDate").value;
+        const appointmentTime = document.getElementById("appointmentTime").value;
 
-            const bookingNumber = "HSP" + Math.floor(Math.random() * 1000000);
+        // Allow appointments only between 10:00 AM and 3:00 PM
+        if (appointmentTime < "10:00" || appointmentTime > "15:00") {
+            alert("Appointments can only be booked between 10:00 AM and 3:00 PM.");
+            return;
+        }
 
-            const appointment = {
-                bookingNumber: bookingNumber,
-                patientName: patientName,
-                hospital: hospital,
-                doctor: doctor,
-                appointmentDate: appointmentDate,
-                status: "Pending"
-            };
+        const bookingNumber = "HSP" + Math.floor(100000 + Math.random() * 900000);
 
-            let appointments =
-                JSON.parse(localStorage.getItem("appointments")) || [];
+        const appointment = {
+            bookingNumber,
+            patientName,
+            phone,
+            hospital,
+            doctor,
+            appointmentDate,
+            appointmentTime,
+            status: "Pending"
+        };
 
-            appointments.push(appointment);
+        let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+        appointments.push(appointment);
 
-            localStorage.setItem("appointments", JSON.stringify(appointments));
+        localStorage.setItem("appointments", JSON.stringify(appointments));
 
-            // Save latest appointment for confirmation page
-            localStorage.setItem("bookingNumber", bookingNumber);
-            localStorage.setItem("patientName", patientName);
-            localStorage.setItem("hospital", hospital);
-            localStorage.setItem("doctor", doctor);
-            localStorage.setItem("appointmentDate", appointmentDate);
+        // Save latest appointment for confirmation page
+        localStorage.setItem("bookingNumber", bookingNumber);
+        localStorage.setItem("patientName", patientName);
+        localStorage.setItem("phone", phone);
+        localStorage.setItem("hospital", hospital);
+        localStorage.setItem("doctor", doctor);
+        localStorage.setItem("appointmentDate", appointmentDate);
+        localStorage.setItem("appointmentTime", appointmentTime);
 
-            window.location.href = "appointment-success.html";
-        });
-    }
+        alert("Appointment Booked Successfully!");
+        window.location.href = "appointment-success.html";
+    });
+} 
 
 });
