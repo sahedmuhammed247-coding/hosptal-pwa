@@ -873,9 +873,24 @@ footer{
         white-space:nowrap;
     }
 
+    header{
+        padding:25px 15px;
+    }
+
+    header h1{
+        font-size:30px;
+    }
+
+    body.home-page{
+        background-size:100% auto;
+        background-position:top center;
+        background-repeat:no-repeat;
+        background-attachment:scroll;
+    }
+
     main{
         justify-content:flex-start;
-        padding-top:30px;
+        padding-top:40px;
     }
 
     .buttons,
